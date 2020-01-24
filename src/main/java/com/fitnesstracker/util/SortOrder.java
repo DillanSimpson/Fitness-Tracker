@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 /**
  * Values that are used to signify the type of sort order used in database queries.
  *
- * @author KG057469
+ * @author Dillan Simpson
  */
 public enum SortOrder {
   ASC("ASC"),

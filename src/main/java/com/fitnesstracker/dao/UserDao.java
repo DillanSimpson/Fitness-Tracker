@@ -7,8 +7,7 @@ import java.util.List;
 /**
  * This interface outlines the functions to perform operations on {@link User} with the database.
  *
- * @author SL062882
- * @author JS066429
+ * @author Dillan Simpson
  */
 public interface UserDao {
   /**
@@ -23,7 +22,7 @@ public interface UserDao {
   /**
    * Retrieve {@link User} object using associate ID.
    *
-   * @param Id, associateID of user which cannot be {@code null} or empty.
+   * @param Id, userId of user which cannot be {@code null} or empty.
    * @return {@link User} from persistent Objects.
    * @throws DataBaseException, if error occurred in finding the persistent {@link User} object.
    * @throws VerifyException, if the Id is {@code null}.

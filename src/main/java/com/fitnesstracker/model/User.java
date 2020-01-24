@@ -36,11 +36,10 @@ public class User implements Serializable {
   /**
    * Parameterized Constructor
    *
-   * @param associateID of a user, never be {@code null} or empty
+   * @param userId of a user, never be {@code null} or empty
    * @param firstName of a user, never be {@code null} or empty
    * @param lastName of a user, never be {@code null} or empty
    * @param email of a user, never be {@code null} or empty
-   * @param role of a user, never be {@code null} or empty
    * @throws IllegalArgumentException if the assoicateID, firstName,lastName is {@code null}, empty
    *     or blank. if the role of the user is {@code null}
    */

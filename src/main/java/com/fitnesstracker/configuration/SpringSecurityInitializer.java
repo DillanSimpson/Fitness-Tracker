@@ -10,7 +10,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * used with {@link #AbstractSecurityWebApplicationInitializer(Class...)}, it
  * will also register a {@link ContextLoaderListener}
  *
- * @author SC064997
+ * @author Dillan Simpson
  *
  */
 

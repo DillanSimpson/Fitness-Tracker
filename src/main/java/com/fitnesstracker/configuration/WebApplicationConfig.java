@@ -13,7 +13,7 @@ import com.fitnesstracker.configuration.WebSecurityConfiguration;
  * container to generate bean definitions and service requests
  * for those beans at runtime
  *
- * @author SC064997
+ * @author Dillan Simpson
  *
  * */
 
@@ -22,7 +22,7 @@ public class WebApplicationConfig extends AbstractAnnotationConfigDispatcherServ
 
   @Override
   protected Class<?>[] getRootConfigClasses() {
-    return new Class[] {WebSecurityConfiguration.class};
+    return null;
   }
 
   @Override

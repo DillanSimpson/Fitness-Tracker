@@ -1,4 +1,4 @@
-package com.cerner.opensource.controller;
+package com.fitnesstracker.controller;
 
 import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.extension.ExtendWith;

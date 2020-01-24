@@ -1,4 +1,4 @@
-package com.cerner.opensource.dao.impl;
+package com.fitnesstracker.dao.impl;
 
 import com.fitnesstracker.dao.impl.UserDaoImpl;
 import com.fitnesstracker.model.User;

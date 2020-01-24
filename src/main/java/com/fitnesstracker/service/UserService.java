@@ -16,7 +16,6 @@ public interface UserService {
    *
    * @param user, cannot be {@code null}
    * @throws DataBaseException, if the given {@link User} is unable to add into the database.
-   * @throws VerifyException, if the given {@link User} is {@code null}.
    */
   void addUser(User user);
 
@@ -26,7 +25,6 @@ public interface UserService {
    * @param id, associateId of the user which cannot be {@code null} or empty.
    * @return {@link User} object.
    * @throws DataBaseException, if there is problem in finding the user from database.
-   * @throws VerifyException, if the id is {@code null}.
    */
   User getUser(String id);
 
@@ -36,7 +34,6 @@ public interface UserService {
    * @return list of {@link User}s.
    * @throws DataBaseException, if there is problem in getting the list of {@link User}s from
    *     database.
-   * @throws VerifyException, if the list of {@link User}s returned is {@code null} or empty.
    */
   List<User> getUsers();
 }
