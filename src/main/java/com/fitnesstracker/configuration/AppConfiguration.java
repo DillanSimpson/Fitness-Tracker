@@ -67,7 +67,7 @@ public class AppConfiguration implements WebMvcConfigurer {
    */
   @Override
   public void addViewControllers(ViewControllerRegistry registry) {
-    registry.addViewController("/").setViewName("welcome");
+    registry.addViewController("/").setViewName("home");
   }
 
   /*

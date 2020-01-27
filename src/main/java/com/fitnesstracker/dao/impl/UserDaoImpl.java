@@ -2,11 +2,16 @@ package com.fitnesstracker.dao.impl;
 
 import com.fitnesstracker.dao.UserDao;
 import com.fitnesstracker.model.User;
+import static com.fitnesstracker.util.Constant.USER_ID;
+import java.util.Objects;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
+
 import org.springframework.stereotype.Repository;
+
 
 /**
  * It provides implementation methods to the {@link UserDao}
@@ -28,6 +33,7 @@ public class UserDaoImpl implements UserDao {
       "SELECT u FROM User u ORDER BY u.associateID asc";
   private static final String GET_USERS_QUERY_SORTED_DESC =
       "SELECT u FROM User u ORDER BY u.associateID desc";
+  private static final String DELETE_USER_QUERY = "DELETE FROM User u WHERE u.associateID = :associateId";
   
   /** @return query string for pulling all users */
   String getUsersQuery() {
@@ -46,20 +52,49 @@ public class UserDaoImpl implements UserDao {
 
 @Override
 public void addUser(User user) {
-	// TODO Auto-generated method stub
+	if(!Objects.isNull(user)) {
+	  try {
+	    entityManager.persist(user);
+	  } catch (PersistenceException ex) {
+		  //TODO Exception handler
+	  }
+	}
 	
 }
 
 @Override
 public User getUser(String Id) {
-	// TODO Auto-generated method stub
+	try {
+		return entityManager.find(User.class, Id);
+	}
+	catch(PersistenceException ex) {
+		//TODO Exception handler
+	}
 	return null;
 }
 
 @Override
 public List<User> getUsers() {
-	// TODO Auto-generated method stub
+	try {
+		return entityManager.createQuery(GET_USERS_QUERY, User.class).getResultList();
+	}
+	catch(PersistenceException ex) {
+		//TODO Exception handler
+	}
 	return null;
+}
+
+@Override
+public void deleteUser(String userId) {
+	try {
+		entityManager.joinTransaction();
+		entityManager
+			.createQuery(DELETE_USER_QUERY)
+			.setParameter(USER_ID, userId)
+			.executeUpdate();
+	    } catch (PersistenceException ex) {
+	    	//TODO Exception handler
+	    }
 }
 
 }

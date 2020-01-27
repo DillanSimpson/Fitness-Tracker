@@ -7,7 +7,9 @@ import com.fitnesstracker.service.UserService;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Provides implementation for all the methods in the {@link UserService}
@@ -17,35 +19,58 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-  private UserDao userDao;
-  final Logger logger = Logger.getLogger(UserServiceImpl.class);
+	private UserDao userDao;
+	final Logger logger = Logger.getLogger(UserServiceImpl.class);
 
-  /**
-   * Constructor to inject userDao
-   *
-   * @param userDao
-   */
-  @Autowired
-  public UserServiceImpl(UserDao userDao) {
-    this.userDao = userDao;
-  }
+	/**
+	 * Constructor to inject userDao
+	 *
+	 * @param userDao
+	 */
+	@Autowired
+	public UserServiceImpl(UserDao userDao) {
+		this.userDao = userDao;
+	}
 
-@Override
-public void addUser(User user) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public void addUser(User user) {
+		try {
+			userDao.addUser(user);
+		} catch (DataAccessException ex) {
+			// TODO
+		}
+	}
 
-@Override
-public User getUser(String id) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public User getUser(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-@Override
-public List<User> getUsers() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public List<User> getUsers() {
+		try {
+	      final List<User> usersList = userDao.getUsers();
+	      if (usersList == null || usersList.isEmpty()) {
+	        //TODO Exception Handler
+	      }
+	      return usersList;
+	    } catch (DataAccessException ex) {
+	    	//TODO Exception Handler
+	    }
+		return null;
+	}
 
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public void deleteUser(String userId) {
+		try {
+		      userDao.deleteUser(userId);
+		    } catch (DataAccessException ex) {
+		    	//TODO Exception Handler
+		    }
+	}
 }
