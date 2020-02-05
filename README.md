@@ -36,8 +36,8 @@ mvn fmt:format    // Format all java source files
 - Install and follow the default installation process to create 'root' user with password 'admin'
 
 ## Link to Database
-- Every configuration related to the database is configured in [AppConfiguration.java](https://github.training.cerner.com/DevCenter/Open-Source-Statistics/blob/stable/src/main/java/com/cerner/opensource/configuration/AppConfiguration.java#L124 "DataSource configuration") file.
 - Create a new schema with name 'fitnesstracker' in MySQL Workbench.
+- Under helperFiles folder open dummyData.sql in mySQL Workbench and execute the script.
 
 ## Configure Eclipse Java Version
 - Check that the appropriate jdk version is installed
@@ -60,11 +60,10 @@ mvn fmt:format    // Format all java source files
 		- Change Java version to 1.8
 
 ## Enable Eclipse Auto Formatter
-- Download the ossw_formatting_preset.xml from the [Jira page](https://jira2.cerner.com/browse/ACADEM-11186 "Open Source Statistics Epic")
 - To import formatting preset
 	- Open Eclipse
 	- Go to Window > Preferences > Java > Code Style > Formatter
-	- Click Import and Select the downloaded file
+	- Click Import and navigate to helperDocuments folder, select formatter
 	- Click Apply and Close
 - To enable formatting on save
 	- Go to Window > Preferences > Java > Editor > Save Actions
@@ -77,7 +76,7 @@ mvn fmt:format    // Format all java source files
 ## Setup Project in Eclipse
 - Clone the project in Eclipse
 	- Clone the project from GitHub
-	- Place in a folder on you local drive suggested C:\\Users\\<yourUserName>\\git\\
+	- Place in a folder on you local drive suggested C:\\Users\\(yourUserName)\\git
 	- Go to File > Import > Maven > Existing Maven Project browse project file then select finish
 
 ## Link to Tomcat with Eclipse
