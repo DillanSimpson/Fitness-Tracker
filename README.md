@@ -1,4 +1,4 @@
-# Fitness-Tracker
+# Fitness-Tracker!
 The basic concept for this project is keeping track of someone's work outs, food/water in-take and have suggestions based on their fitness plan. 
 
 # IDE Setup
