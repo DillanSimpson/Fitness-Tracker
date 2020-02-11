@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <url>http://maven.apache.org</url>
     <!-- Application Archetype -->
-    <groupId>com.fitnesstracker</groupId>
+    <groupId>com.swoletics.fitnesstracker</groupId>
     <artifactId>fitnesstracker</artifactId>
     <packaging>war</packaging>
     <version>1.0.0-SNAPSHOT</version>

@@ -16,11 +16,12 @@
 		<!-- CSS Links -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/resources/navbar/css/home.css" rel="stylesheet">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Fitness Tracker</title>
 	</head>
 	<body>
-		<h1>Welcome to the Fitness Tracker</h1>	
+		<h1>Welcome to the Fitness Tracker <b>${userName}</b></h1>	
 	</body>	
 </html>
