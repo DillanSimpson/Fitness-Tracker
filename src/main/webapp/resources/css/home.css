@@ -1,0 +1,91 @@
+#main {
+	background: #366579;
+	background-image: linear-gradient(to top left, #6fa7be, #274856);
+	color: #f4f8fa;
+}
+
+#container-or {
+	
+}
+
+
+.h1,
+.h2,
+.main-head {
+	text-align: center;
+	letter-spacing: .75px;
+}
+
+.main-head {
+	text-shadow: 3px 3px 4px #000000;
+	font-size: 300%;
+}
+
+.h2 {
+	font-weight: 300;
+	font-size: 115%;
+}
+
+#btn-or {
+	display: block;
+	background: #274856;
+	color: #f4f8fa;
+	border: #274856;
+	width: 103px;
+}
+
+.btn-container {
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	margin-left: -51.57px;
+}
+
+.logo {
+	display: block;
+	height: 75px;
+	width: auto;
+	margin-left: auto;
+  	margin-right: auto;
+	transition: transform 0.25s ease;
+	cursor: zoom-in;
+}
+
+#zoomCheck {
+	display: none;
+}
+
+#swolezoom {
+	display: block;
+}
+
+input[type=checkbox]:checked ~ label > img {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+
+#login {
+	color: #274856;
+}
+
+@media (min-width: 540px) {
+
+	.btn-container {
+		position: absolute;
+		top: 55%;
+		width: 100%;
+		left: 0%;
+		margin-left: 0px;
+	}
+	
+	#btn-or {
+		width: 100%;
+	}
+	
+	#register-form {
+		width: 540px;
+	}
+}
+
+
+
