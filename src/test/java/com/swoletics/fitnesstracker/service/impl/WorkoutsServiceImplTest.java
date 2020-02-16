@@ -1,4 +1,4 @@
-package com.swoletics.fitnesstracker.controller;
+package com.swoletics.fitnesstracker.service.impl;
 
 import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,12 +9,12 @@ import org.springframework.ui.ModelMap;
 import com.swoletics.fitnesstracker.model.UserData;
 
 /**
- * This is a test class for {@link UserController}
+ * This is a test class for {@link WorkoutsServiceImpl}
  *
  * @author Dillan Simpson
  */
 @ExtendWith(MockitoExtension.class)
-public class UserControllerTest {
+public class WorkoutsServiceImplTest {
 
   @Mock private UserData mockUser;
   @Mock private HttpSession mockHttpSession;

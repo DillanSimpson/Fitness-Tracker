@@ -2,7 +2,6 @@ package com.swoletics.fitnesstracker.service;
 
 import com.swoletics.fitnesstracker.model.FoodLog;
 import com.swoletics.fitnesstracker.model.WorkoutPlans;
-import com.swoletics.fitnesstracker.util.WorkoutPlan;
 
 import java.util.List;
 

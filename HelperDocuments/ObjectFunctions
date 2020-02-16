@@ -1,0 +1,64 @@
+**These are the current functions for each object. To use them via JSP or JavaScript 
+  use: ${object}.{functionName} (Ex: ${user}.{getUserId}, returns the user id for that current user)**
+
+**NOTE: Only getters are listed but setters are also available, 
+        use the same format but replace get -> set (i.e getUserId() => setUserId(parameter))**
+
+**USER**
+ -getUserId() : Returns user Id for current User (Return type Int)
+ -getUserName() : Returns user name for current User (Return type String)
+ -getPassword() : Returns password for current User (Return type String)
+ -getMemberType() : Returns member type for current User (Return type String)
+ -getRole() : Returns role for current User (Return type String)
+ -getActive : Returns if user is active for current User (Return type Boolean)
+ 
+ **USER DATA**
+ -getUserId() : Returns user Id for current User (Return type Int)
+ -getFirstName() : Returns first name for current User (Return type String)
+ -getLastName() : Returns last name for current User (Return type String)
+ -getEmail() : Returns email for current User (Return type String)
+ -getAge() : Returns age for current User (Return type Int)
+ -getSex() : Returns gender for current User (Return type String)
+ -getHeight() : Retuns height in inches for current User (Return type Double)
+ -getWeight() : Returns weight for current User (Return type Double)
+ -getCaloriesMax() : Returns suggested max calories for current User (Return type Int)
+ -getCaloriesMin() : Returns suggested min calories for current User (Return type Int)
+ -getCarbsMax() : Returns suggested max carbs for current User (Return type Int)
+ -getCarbsMin() : Returns suggested min calories for current User (Return type Int)
+ -getFatMax() : Returns suggested max fat for current User (Return type Int)
+ -getFatMin() : Returns suggested min fat for current User (Return type Int)
+ -getProteinMax : Returns suggested max protein for current User (Return type Int)
+ -getProteinMin: Returns suggested min protein for current User (Return type Int)
+ -getWorkoutFrequency : Returns suggested workout frequency for current User (Return type Int)
+ -getWorkoutPlan : Returns workout plan id for current User (Return type Int)
+ -getWorkoutId : Returns workout Id for current User (Return type Int)
+ 
+ **FOOD LOG**
+ -getId() : Returns Id for food (Return type Int)
+ -getFoodName() : Retuns food name (Return type String)
+ -getCalories() : Returns calories for food (Return type int)
+ -getCarbs() : Retuns carbs for food (Return type float)
+ -getFat() : Returns fat for food (Return type float)
+ -getSugar() : Retuns sugar for food (Return type float)
+ -getProtein() : Retuns protein for food (Return type float)
+ -getUserId() : Retuns user Id for specific record (Return type Int)
+ 
+ **WORKOUT LOG**
+ -getWorkoutId() : Returns the id for the workout (Return type Int)
+ -getReps() : Returns the rep count for workout (Return type Int)
+ -getWeight() : Returns the weight for each workout (Return type Int)
+ -getSets() : Returns the amount of sets per workout (Return type Int)
+ -getDistance() : Returns the distance for aerobic workouts (Return type Float)
+ -getUserId() : Return the user id for current record (Return type Int)
+ 
+ **WORKOUTS**
+-getWorkoutId() : Returns the id for the workout (Return type Int)
+-getWorkoutType() : Returns the workout type for the workout (Return type String)
+-getCategory() : Returns the category for the workout (Return type String)
+-getWorkoutName() : Returns the name of the workout (Return type String)
+-getDescription() : Returns a short description of the workout (Return type String)
+-getLength() : Return duration of workout (Return type Float)
+
+**WORKOUT PLANS**
+-getPlanId() : Returns id of workout plan (Return type Int)
+-getPlanName() : Returns the name of the workout plan (Return type String)

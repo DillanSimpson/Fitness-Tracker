@@ -2,10 +2,10 @@ package com.swoletics.fitnesstracker.model;
 
 
 /**
- * Test class for the {@link User}
+ * Test class for the {@link UserData}
  *
  * @author Dillan Simpson
  */
-public class UserTest {
+public class UserDataTest {
 
 }

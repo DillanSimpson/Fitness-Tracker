@@ -12,15 +12,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
-import org.springframework.stereotype.Repository;
-
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * It provides implementation methods to the {@link UserDao}
  *
  * @author Dillan Simpon
  */
-@Repository
 public class UserDaoImpl implements UserDao {
 
   /**
@@ -64,6 +62,7 @@ public void addUser(User user) {
 	
 }
 
+@Transactional
 @Override
 public User getUser(String Id) {
 	try {

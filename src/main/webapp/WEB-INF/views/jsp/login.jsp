@@ -21,7 +21,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session="true" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
 <html>
 	<head>
 		<!-- Scripts -->	
@@ -64,16 +63,16 @@
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
-		      <div class="modal-body">
-		        <form>
+		      <div class="modal-body">		      
+		        <form name='login' action="${pageContext.request.contextPath}/login" method='POST'>
 				  <div class="form-group row">
 				    <div class="col-sm-10">
-				      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+				      <input type='email' class="form-control" name='username' id="inputEmail3" placeholder="Email">
 				    </div>
 				  </div>
 				  <div class="form-group row">
 				    <div class="col-sm-10">
-				      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				      <input type="password" name='password' class="form-control" id="inputPassword3" placeholder="Password">
 				    </div>
 				  </div>
 				  <div class="form-group row">
@@ -89,9 +88,10 @@
 				  </div>
 				  <div class="form-group row">
 				    <div class="col-sm-10">
-				      <button type="submit" id="btn-or" class="btn btn-primary">Log In</button>
+				      <button type="submit" name="submit" id="btn-or" class="btn btn-primary">Log In</button>
 				    </div>
 				  </div>
+				 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</form>
 		      </div>
 		    </div>

@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Dillan Simpson
  */
-@Service
 public class UserServiceImpl implements UserService {
 
 	private UserDao userDao;

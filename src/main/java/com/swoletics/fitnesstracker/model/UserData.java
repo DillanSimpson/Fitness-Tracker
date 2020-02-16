@@ -2,10 +2,17 @@ package com.swoletics.fitnesstracker.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,8 +27,9 @@ public class UserData implements Serializable {
   private static final long serialVersionUID = 1954240442498239583L;
   
   @Id
-  @Column(name = "user_id", unique = true, nullable = false)
-  private String userId;
+  @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+  @JoinColumn(name = "user_id")  
+  private User user;
 
   @Column(name = "first_name", unique = false, nullable = false)
   private String firstName;
@@ -36,43 +44,43 @@ public class UserData implements Serializable {
   private int age;
 
   @Column(name = "sex", unique = false, nullable = false)
-  String sex;
+  private String sex;
 
   @Column(name = "height", unique = false, nullable = false)
-  double height;
+  private double height;
 
   @Column(name = "weight", unique = false, nullable = false)
-  double weight;
+  private double weight;
 
   @Column(name = "calories_max", unique = false, nullable = false)
-  int caloriesMax;
+  private int caloriesMax;
 
   @Column(name = "calories_min", unique = false, nullable = false)
-  int caloriesMin;
+  private int caloriesMin;
 
   @Column(name = "carbs_max", unique = false, nullable = false)
-  int carbsMax;
+  private int carbsMax;
 
   @Column(name = "fat_max", unique = false, nullable = false)
-  int fatMax;
+  private int fatMax;
 
   @Column(name = "sugar_max", unique = false, nullable = false)
-  int sugarMax;
+  private int sugarMax;
 
   @Column(name = "protein_max", unique = false, nullable = false)
-  int proteinMax;
+  private int proteinMax;
 
   @Column(name = "protein_min", unique = false, nullable = false)
-  int proteinMin;
-
-  @Column(name = "plan_id", unique = false, nullable = false)
-  int planId;
-
-  @Column(name = "plan_name", unique = false, nullable = false)
-  String planName;
+  private int proteinMin;
 
   @Column(name = "workout_frequency", unique = false, nullable = false)
-  int workoutFrequency;  
+  private int workoutFrequency;  
+  
+  @Column(name = "workout_plan", unique = false, nullable = false)
+  private int workoutPlan;
+  
+  @Column(name = "workout_id", unique = false, nullable = false)
+  private int workoutId; 
   
   /**
    * Constructor
@@ -92,12 +100,11 @@ public class UserData implements Serializable {
    * @param fatMax, cannot be {@code null}
    * @param proteinMax, cannot be {@code null}
    * @param proteinMin, cannot be {@code null}
-   * @param planId, cannot be {@code null}
-   * @param planName, cannot be {@code null}
    * @param workoutFrequency, cannot be {@code null}
+   * @param workoutPlan, cannot be {@code null}
+   * @param workoutId, cannot be {@code null}
    */
   public UserData(
-      final String userId,
       final String firstName,
       final String lastName,
       final String email,
@@ -112,11 +119,10 @@ public class UserData implements Serializable {
       final int fatMax,
       final int proteinMax,
       final int proteinMin,
-      final int planId,
-      final String planName,
-      final int workoutFrequency
+      final int workoutFrequency,
+      final int workoutPlan,
+      final int workoutId
       ) {
-	this.userId = userId;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -131,9 +137,9 @@ public class UserData implements Serializable {
     this.fatMax = fatMax;
     this.proteinMax = proteinMax;
     this.proteinMin = proteinMin;
-    this.planId = planId;
-    this.planName = planName;
     this.workoutFrequency = workoutFrequency;
+    this.workoutPlan = workoutPlan;
+    this.workoutId = workoutId;
   }
 
 }
