@@ -1,6 +1,5 @@
 package com.swoletics.fitnesstracker.model;
 
-
 /**
  * Test class for the {@link WorkoutPlans}
  *

@@ -51,14 +51,14 @@ public class UserDataServiceImpl implements UserDataService {
 	@Override
 	public List<UserData> getUsersData() {
 		try {
-	      final List<UserData> usersList = userDataDao.getUsersData();
-	      if (usersList == null || usersList.isEmpty()) {
-	        //TODO Exception Handler
-	      }
-	      return usersList;
-	    } catch (DataAccessException ex) {
-	    	//TODO Exception Handler
-	    }
+			final List<UserData> usersList = userDataDao.getUsersData();
+			if (usersList == null || usersList.isEmpty()) {
+				// TODO Exception Handler
+			}
+			return usersList;
+		} catch (DataAccessException ex) {
+			// TODO Exception Handler
+		}
 		return null;
 	}
 
@@ -66,9 +66,9 @@ public class UserDataServiceImpl implements UserDataService {
 	@Transactional(rollbackFor = Exception.class)
 	public void deleteUserData(String userId) {
 		try {
-		      userDataDao.deleteUserData(userId);
-		    } catch (DataAccessException ex) {
-		    	//TODO Exception Handler
-		    }
+			userDataDao.deleteUserData(userId);
+		} catch (DataAccessException ex) {
+			// TODO Exception Handler
+		}
 	}
 }

@@ -2,10 +2,30 @@ package com.swoletics.fitnesstracker.controller;
 
 import static com.swoletics.fitnesstracker.util.Constant.USERSETUP_ROUTE;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.swoletics.fitnesstracker.model.Authorities;
+import com.swoletics.fitnesstracker.model.Role;
+import com.swoletics.fitnesstracker.model.User;
+import com.swoletics.fitnesstracker.service.AuthoritiesService;
+import com.swoletics.fitnesstracker.service.UserService;
+
 import springfox.documentation.annotations.ApiIgnore;
 
 /** This controller handles the methods related to get user setup page */
@@ -13,16 +33,87 @@ import springfox.documentation.annotations.ApiIgnore;
 @ApiIgnore
 public class UserSetupController {
 
-  /**
-   * Returns user setup page
-   *
-   * @param session, {@link HttpSession} of the application context, which cannot be {@code null}.
-   * @param model, {@link ModelMap} of the application context, which cannot be {@code null}
-   * @return String name of the view or mapping name
-   */
-  @RequestMapping("/userSetup")
-  public String userSetup(HttpSession session, ModelMap model)
-  {
-    return USERSETUP_ROUTE;
-  }
+	final Logger logger = Logger.getLogger(UserSetupController.class);
+
+	@Inject
+	UserService userService;
+
+	@Inject
+	AuthoritiesService authoritiesService;
+
+	@Autowired
+	protected AuthenticationManager authenticationManager;
+
+	/**
+	 * Returns user setup page, if user is already signed in redirects home
+	 *
+	 * @param session, {@link HttpSession} of the application context, which cannot
+	 *                 be {@code null}.
+	 * @param model,   {@link ModelMap} of the application context, which cannot be
+	 *                 {@code null}
+	 * @return String name of the view or mapping name
+	 */
+	@RequestMapping("/userSetup")
+	public String userSetup(HttpSession session, ModelMap model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+
+			return "redirect:/home";
+		}
+
+		return USERSETUP_ROUTE;
+	}
+
+	/**
+	 * Registers a user
+	 * 
+	 * @param user,     user object to be set
+	 * @param username, username for {@link User}
+	 * @param password, password for {@link User}
+	 * @param enabled,  indicator if {@link User} is active
+	 * @param request,  servlet request
+	 * @param response, servelt response
+	 * @return String, redirect home after successful registration
+	 */
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registerUser(User user, String username, String password, Boolean enabled, HttpServletRequest request,
+			HttpServletResponse response) {
+		Authorities authorities = new Authorities();
+
+		authorities.setRole(Role.USER);
+		authorities.setUserName(username);
+
+		user.setEnabled(enabled);
+		user.setPassword(password);
+		user.setUserName(username);
+		user.setAuthorities(authorities);
+
+		userService.addUser(user);
+
+		authenticateUserAndSetSession(user, request);
+
+		return "redirect:/home";
+	}
+
+	/**
+	 * Validates the user
+	 * 
+	 * @param user,    user to be validated
+	 * @param request, servlet request
+	 */
+	private void authenticateUserAndSetSession(User user, HttpServletRequest request) {
+		String username = user.getUserName();
+		String password = user.getPassword();
+		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+
+		// generate session if one doesn't exist
+		request.getSession();
+
+		token.setDetails(new WebAuthenticationDetails(request));
+		Authentication authenticatedUser = authenticationManager.authenticate(token);
+
+		SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+	}
+
 }

@@ -8,10 +8,7 @@
 	
 }
 
-
-.h1,
-.h2,
-.main-head {
+.h1, .h2, .main-head {
 	text-align: center;
 	letter-spacing: .75px;
 }
@@ -46,7 +43,7 @@
 	height: 75px;
 	width: auto;
 	margin-left: auto;
-  	margin-right: auto;
+	margin-right: auto;
 	transition: transform 0.25s ease;
 	cursor: zoom-in;
 }
@@ -59,17 +56,16 @@
 	display: block;
 }
 
-input[type=checkbox]:checked ~ label > img {
-  transform: scale(2);
-  cursor: zoom-out;
+input[type=checkbox]:checked ~ label>img {
+	transform: scale(2);
+	cursor: zoom-out;
 }
 
 #login {
 	color: #274856;
 }
 
-@media (min-width: 540px) {
-
+@media ( min-width : 540px) {
 	.btn-container {
 		position: absolute;
 		top: 55%;
@@ -77,11 +73,9 @@ input[type=checkbox]:checked ~ label > img {
 		left: 0%;
 		margin-left: 0px;
 	}
-	
 	#btn-or {
 		width: 100%;
 	}
-	
 	#register-form {
 		width: 540px;
 	}

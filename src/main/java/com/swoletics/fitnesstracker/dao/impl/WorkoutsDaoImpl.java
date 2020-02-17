@@ -19,29 +19,30 @@ import org.springframework.stereotype.Repository;
 public class WorkoutsDaoImpl implements WorkoutsDao {
 
 	/**
-	 * Spring allows us to specify persistence unit to operate with Database. It Expresses a
-	 * dependency on a container-managed {@link EntityManager} and its associated persistence context.
+	 * Spring allows us to specify persistence unit to operate with Database. It
+	 * Expresses a dependency on a container-managed {@link EntityManager} and its
+	 * associated persistence context.
 	 */
-	@PersistenceContext EntityManager entityManager;
-
+	@PersistenceContext
+	EntityManager entityManager;
 
 	@Override
 	public void addWorkout(Workouts workout) {
 		try {
 			entityManager.persist(workout);
-		} catch(PersistenceException ex) {
-			//TODO
+		} catch (PersistenceException ex) {
+			// TODO
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Workouts> getWorkouts(int userId) {
 		try {
 			return entityManager.createQuery("SELECT w FROM workouts WHERE w.user_id = :userId")
 					.setParameter("user_id", userId).getResultList();
-		} catch(PersistenceException ex) {
-			//TODO
+		} catch (PersistenceException ex) {
+			// TODO
 		}
 		return null;
 	}
@@ -50,13 +51,11 @@ public class WorkoutsDaoImpl implements WorkoutsDao {
 	public void deleteWorkout(int workoutId) {
 		try {
 			entityManager.joinTransaction();
-			entityManager
-				.createQuery("DELETE FROM workout w WHERE w.workout_Id = :workoutId")
-				.setParameter("workout_Id", workoutId)
-				.executeUpdate();
-		    } catch (PersistenceException ex) {
-		    	//TODO Exception handler
-		    }		
-	}	
-	
+			entityManager.createQuery("DELETE FROM workout w WHERE w.workout_Id = :workoutId")
+					.setParameter("workout_Id", workoutId).executeUpdate();
+		} catch (PersistenceException ex) {
+			// TODO Exception handler
+		}
+	}
+
 }

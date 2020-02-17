@@ -16,8 +16,11 @@ import com.swoletics.fitnesstracker.model.UserData;
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplTest {
 
-  @Mock private UserData mockUser;
-  @Mock private HttpSession mockHttpSession;
-  @Mock private ModelMap mockModelMap;
-  
+	@Mock
+	private UserData mockUser;
+	@Mock
+	private HttpSession mockHttpSession;
+	@Mock
+	private ModelMap mockModelMap;
+
 }

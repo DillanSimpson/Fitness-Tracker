@@ -7,5 +7,4 @@ package com.swoletics.fitnesstracker.model;
  */
 public class FoodLogTest {
 
- 
 }

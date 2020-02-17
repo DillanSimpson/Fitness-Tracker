@@ -13,16 +13,17 @@ import springfox.documentation.annotations.ApiIgnore;
 @ApiIgnore
 public class FoodLogController {
 
-  /**
-   * Returns food log page
-   *
-   * @param session, {@link HttpSession} of the application context, which cannot be {@code null}.
-   * @param model, {@link ModelMap} of the application context, which cannot be {@code null}
-   * @return String name of the view or mapping name
-   */
-  @RequestMapping("/foodLog")
-  public String foodLog(HttpSession session, ModelMap model)
-  {
-    return FOODLOG_ROUTE;
-  }
+	/**
+	 * Returns food log page
+	 *
+	 * @param session, {@link HttpSession} of the application context, which cannot
+	 *                 be {@code null}.
+	 * @param model,   {@link ModelMap} of the application context, which cannot be
+	 *                 {@code null}
+	 * @return String name of the view or mapping name
+	 */
+	@RequestMapping("/foodLog")
+	public String foodLog(HttpSession session, ModelMap model) {
+		return FOODLOG_ROUTE;
+	}
 }

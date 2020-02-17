@@ -4,7 +4,6 @@ import com.swoletics.fitnesstracker.model.UserData;
 
 import javax.persistence.EntityManager;
 
-
 /**
  * Test class for {@link UserDataDaoImpl}
  *
@@ -12,8 +11,8 @@ import javax.persistence.EntityManager;
  */
 public class UserDataDaoImplTest {
 
-  private UserDataDaoImpl userDataDaoImpl;
-  private EntityManager mockEntityManager;
-  private UserData user;
- 
+	private UserDataDaoImpl userDataDaoImpl;
+	private EntityManager mockEntityManager;
+	private UserData user;
+
 }

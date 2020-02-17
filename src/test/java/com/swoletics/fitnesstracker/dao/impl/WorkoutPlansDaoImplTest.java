@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
  */
 public class WorkoutPlansDaoImplTest {
 
-  private WorkoutPlansDaoImpl workoutPlansDaoImpl;
-  private EntityManager mockEntityManager;
- 
+	private WorkoutPlansDaoImpl workoutPlansDaoImpl;
+	private EntityManager mockEntityManager;
+
 }
