@@ -7,9 +7,8 @@ package com.swoletics.fitnesstracker.model;
  */
 public enum MemberType {
 	/** Account type for the user, tracker only */
-	  TRACKER,
+	TRACKER,
 
-	  /** Account type for the user, diet && workout suggester */
-	  DIET_PLAN
+	/** Account type for the user, diet && workout suggester */
+	DIET_PLAN
 }
-

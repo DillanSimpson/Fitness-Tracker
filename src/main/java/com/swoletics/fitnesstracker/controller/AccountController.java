@@ -13,16 +13,17 @@ import springfox.documentation.annotations.ApiIgnore;
 @ApiIgnore
 public class AccountController {
 
-  /**
-   * Returns account page
-   *
-   * @param session, {@link HttpSession} of the application context, which cannot be {@code null}.
-   * @param model, {@link ModelMap} of the application context, which cannot be {@code null}
-   * @return String name of the view or mapping name
-   */
-  @RequestMapping("/account")
-  public String account(HttpSession session, ModelMap model)
-  {
-    return ACCOUNT_ROUTE;
-  }
+	/**
+	 * Returns account page
+	 *
+	 * @param session, {@link HttpSession} of the application context, which cannot
+	 *                 be {@code null}.
+	 * @param model,   {@link ModelMap} of the application context, which cannot be
+	 *                 {@code null}
+	 * @return String name of the view or mapping name
+	 */
+	@RequestMapping("/account")
+	public String account(HttpSession session, ModelMap model) {
+		return ACCOUNT_ROUTE;
+	}
 }

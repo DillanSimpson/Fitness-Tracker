@@ -16,28 +16,25 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WorkoutPlans implements Serializable {
 
-  private static final long serialVersionUID = 2928898731978970807L;
+	private static final long serialVersionUID = 2928898731978970807L;
 
-  @Id
-  @Column(name = "plan_id", unique = true, nullable = false)
-  private int planId;
+	@Id
+	@Column(name = "plan_id", unique = true, nullable = false)
+	private int planId;
 
-  @Column(name = "plan_name", unique = false, nullable = true)
-  private String plan;
+	@Column(name = "plan_name", unique = false, nullable = true)
+	private String plan;
 
-  /**
-   * Constructor
-   * 
-   * @param planId, id of workout plan cannot be {@code null}
-   * @param planName, name of plan cannot be {@code null}
-   */
-  public WorkoutPlans(
-      final int planId,
-      final String plan
-      ) {
-    this.planId = planId;
-    this.plan = plan;
-   
-  }
+	/**
+	 * Constructor
+	 * 
+	 * @param planId,   id of workout plan cannot be {@code null}
+	 * @param planName, name of plan cannot be {@code null}
+	 */
+	public WorkoutPlans(final int planId, final String plan) {
+		this.planId = planId;
+		this.plan = plan;
+
+	}
 
 }

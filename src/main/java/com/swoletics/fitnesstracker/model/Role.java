@@ -6,10 +6,9 @@ package com.swoletics.fitnesstracker.model;
  *
  */
 public enum Role {
-	  /** Access level for the user */
-	  USER,
+	/** Access level for the user */
+	USER,
 
-	  /** Access level for the admin */
-	  ADMIN
+	/** Access level for the admin */
+	ADMIN
 }
-

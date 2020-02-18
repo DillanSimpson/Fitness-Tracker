@@ -9,6 +9,6 @@ import javax.persistence.EntityManager;
  */
 public class WorkoutsDaoImplTest {
 
-  private WorkoutsDaoImpl workoutsDaoImpl;
-  private EntityManager mockEntityManager; 
+	private WorkoutsDaoImpl workoutsDaoImpl;
+	private EntityManager mockEntityManager;
 }

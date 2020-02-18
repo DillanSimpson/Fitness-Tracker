@@ -15,19 +15,20 @@ import springfox.documentation.annotations.ApiIgnore;
 @Controller
 @ApiIgnore
 public class HomeController {
-	
+
 	final Logger logger = Logger.getLogger(HomeController.class);
 
-  /**
-   * Returns home page
-   *
-   * @param session, {@link HttpSession} of the application context, which cannot be {@code null}.
-   * @param model, {@link ModelMap} of the application context, which cannot be {@code null}
-   * @return String name of the view or mapping name
-   */
-  @RequestMapping("/home")
-  public String home(HttpSession session, ModelMap model)
-  {	
-    return HOME_ROUTE;
-  }
+	/**
+	 * Returns home page
+	 *
+	 * @param session, {@link HttpSession} of the application context, which cannot
+	 *                 be {@code null}.
+	 * @param model,   {@link ModelMap} of the application context, which cannot be
+	 *                 {@code null}
+	 * @return String name of the view or mapping name
+	 */
+	@RequestMapping("/home")
+	public String home(HttpSession session, ModelMap model) {
+		return HOME_ROUTE;
+	}
 }

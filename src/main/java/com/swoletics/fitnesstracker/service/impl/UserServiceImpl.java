@@ -16,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Dillan Simpson
  */
+
+@Service
 public class UserServiceImpl implements UserService {
 
 	private UserDao userDao;
@@ -31,8 +33,8 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	@Override
 	@Transactional(rollbackFor = Exception.class)
+	@Override
 	public void addUser(User user) {
 		try {
 			userDao.addUser(user);
@@ -49,14 +51,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> getUsers() {
 		try {
-	      final List<User> usersList = userDao.getUsers();
-	      if (usersList == null || usersList.isEmpty()) {
-	        //TODO Exception Handler
-	      }
-	      return usersList;
-	    } catch (DataAccessException ex) {
-	    	//TODO Exception Handler
-	    }
+			final List<User> usersList = userDao.getUsers();
+			if (usersList == null || usersList.isEmpty()) {
+				// TODO Exception Handler
+			}
+			return usersList;
+		} catch (DataAccessException ex) {
+			// TODO Exception Handler
+		}
 		return null;
 	}
 
@@ -64,9 +66,9 @@ public class UserServiceImpl implements UserService {
 	@Transactional(rollbackFor = Exception.class)
 	public void deleteUser(String userId) {
 		try {
-		      userDao.deleteUser(userId);
-		    } catch (DataAccessException ex) {
-		    	//TODO Exception Handler
-		    }
+			userDao.deleteUser(userId);
+		} catch (DataAccessException ex) {
+			// TODO Exception Handler
+		}
 	}
 }

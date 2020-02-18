@@ -19,17 +19,19 @@ import org.springframework.stereotype.Repository;
 public class WorkoutPlansDaoImpl implements WorkoutPlansDao {
 
 	/**
-	 * Spring allows us to specify persistence unit to operate with Database. It Expresses a
-	 * dependency on a container-managed {@link EntityManager} and its associated persistence context.
+	 * Spring allows us to specify persistence unit to operate with Database. It
+	 * Expresses a dependency on a container-managed {@link EntityManager} and its
+	 * associated persistence context.
 	 */
-	@PersistenceContext EntityManager entityManager;
-	
+	@PersistenceContext
+	EntityManager entityManager;
+
 	@Override
 	public WorkoutPlans getPlanById(int planId) {
 		try {
 			return entityManager.find(WorkoutPlans.class, planId);
-		} catch(PersistenceException ex) {
-			//TODO
+		} catch (PersistenceException ex) {
+			// TODO
 		}
 		return null;
 	}
@@ -38,8 +40,8 @@ public class WorkoutPlansDaoImpl implements WorkoutPlansDao {
 	public WorkoutPlans getPlanByName(String planName) {
 		try {
 			return entityManager.find(WorkoutPlans.class, planName);
-		} catch(PersistenceException ex) {
-			//TODO
+		} catch (PersistenceException ex) {
+			// TODO
 		}
 		return null;
 	}
@@ -49,12 +51,10 @@ public class WorkoutPlansDaoImpl implements WorkoutPlansDao {
 	public List<WorkoutPlans> getAllPlans() {
 		try {
 			return entityManager.createQuery("FROM workout_plans").getResultList();
-		} catch(PersistenceException ex) {
-			//TODO
+		} catch (PersistenceException ex) {
+			// TODO
 		}
 		return null;
 	}
-	  
-	  
-	
+
 }
