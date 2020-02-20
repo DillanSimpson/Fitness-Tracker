@@ -1,16 +1,24 @@
+
+
+/* -----------------Reusable Components------------------ */
+
 #main {
-	background: #366579;
-	background-image: linear-gradient(to top left, #6fa7be, #274856);
+	background-image: linear-gradient(to top left, #4d8fac, #1c333e);
 	color: #f4f8fa;
 }
 
-#container-or {
-	
+#homeMain {
+	color: #f4f8fa;
+	background: linear-gradient( rgba(39,72,86, 0.6), rgba(0,0,0, 0.6), rgba(39,72,86, 0.6)), url(../img/fitgirl-background.jpg);
+	background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
 }
 
 .h1, .h2, .main-head {
 	text-align: center;
-	letter-spacing: .75px;
+	letter-spacing: 2px;
 }
 
 .main-head {
@@ -18,24 +26,18 @@
 	font-size: 300%;
 }
 
+.h1 {
+	font-weight: 300;
+}
+
 .h2 {
 	font-weight: 300;
 	font-size: 115%;
 }
 
-#btn-or {
-	display: block;
-	background: #274856;
-	color: #f4f8fa;
-	border: #274856;
-	width: 103px;
-}
-
-.btn-container {
-	position: absolute;
-	top: 55%;
-	left: 50%;
-	margin-left: -51.57px;
+.h3 {
+	font-weight: 300;
+	letter-spacing: 1.36rem;
 }
 
 .logo {
@@ -47,6 +49,86 @@
 	transition: transform 0.25s ease;
 	cursor: zoom-in;
 }
+
+
+/* -----------------Buttons------------------------------ */
+
+#btn-or,
+#btnWelcome {
+	display: block;
+	background: #274856;
+	color: #f4f8fa;
+	border: #274856;
+}
+
+#btn-or {
+	width: 103px;
+}
+
+#btnWelcome {
+	width: 160px;
+}
+
+.btn-container {
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	margin-left: -51.57px;
+}
+
+#homeBtns {
+	position: absolute;
+	top: 60%;
+	width: 100%;
+}
+
+/* ---------------------Modal Windows---------------------------------- */
+
+#login {
+	color: #274856;
+}
+
+/* ---------------------Header Nav and Footer------------------------ */
+
+#foot,
+.navDarkish {
+	background-color: #274856;
+	color: #f4f8fa;
+}
+
+#foot {
+	overflow: auto;
+}
+
+#navlinks li a {
+	color: #f4f8fa;
+	font-size: 95%;
+}
+
+#navlinks li a:active,
+#navlinks li a:focus,
+#logoutBtnDrop, 
+#logoutBtnDrop form div button {
+	background: #46829b;
+	border-radius: 7px;
+	color: #f4f8fa;
+}
+
+#logoutBtn {
+	background: #274856;
+	border: #274856;
+}
+
+.logoutIcon {
+	color: #f4f8fa;
+}
+
+.footerLogo {
+	height: 30px;
+	width: auto;
+}
+
+/* -----------------------Special Effects/Animations--------------------------- */
 
 #zoomCheck {
 	display: none;
@@ -61,9 +143,7 @@ input[type=checkbox]:checked ~ label>img {
 	cursor: zoom-out;
 }
 
-#login {
-	color: #274856;
-}
+/* ---------------------Media Queries--------------------------- */
 
 @media ( min-width : 540px) {
 	.btn-container {
