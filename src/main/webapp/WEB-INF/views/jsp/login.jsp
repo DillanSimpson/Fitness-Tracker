@@ -44,14 +44,14 @@
 </head>
 
 <body id="main">
-	<div id="container-or" class="container-md">
+	<div class="container-md">
 		<div class="my-5 py-5">
 			<input type="checkbox" id="zoomCheck"> <label id="swolezoom"
 				for="zoomCheck"> <img
 				src="${pageContext.request.contextPath}/resources/img/swoletics-logo.png"
 				alt="Swoletics logo" class="logo mt-2" />
 			</label>
-			<h1 class="h1 main-head mt-3">Swoletics</h1>
+			<h1 class="main-head mt-3">Swoletics</h1>
 			<h2 class="h2">Fitness Tracker</h2>
 		</div>
 		<div class="pt-5 btn-container">
@@ -99,7 +99,7 @@
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" id="gridCheck1">
 									<label class="form-check-label" for="gridCheck1">
-										Remember me? </label>
+										Remember me </label>
 								</div>
 							</div>
 						</div>
@@ -119,5 +119,3 @@
 
 </body>
 </html>
-
-<!-- #4d8fac -->
