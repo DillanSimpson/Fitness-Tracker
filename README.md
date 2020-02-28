@@ -1,5 +1,5 @@
 # Fitness-Tracker By Swoletics
-Swoletics the company who wants to make you health and fitness a priority! The basic concept for this project is keeping track of someone's work outs, food/water in-take and have suggestions based on their fitness plan. 
+Swoletics the company who wants to make your health and fitness a priority! The basic concept for this project is keeping track of someone's work outs, food/water in-take and have suggestions based on their fitness plan. 
 
 # IDE Setup
 This project can be set up with Eclipse, below are instructions on how to setup the project.
