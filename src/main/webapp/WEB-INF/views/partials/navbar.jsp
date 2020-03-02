@@ -29,6 +29,7 @@
 	<!-- Scripts -->	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 			
 	<!-- CSS Links -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -63,7 +64,7 @@
 			    </button>
 		    </div>
 		    <div class="float-right">
-		    	<p class="d-inline">User@email.com</p>
+		    	<p class="d-inline" id="userFullName"></p>
 		    	<div class="btn-group">
 				  <button  id="logoutBtn" type="button" class="btn btn-info p-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  	<ion-icon class="logoutIcon" name="power-outline"></ion-icon>
@@ -81,6 +82,7 @@
 		</div>
 		
 		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+		<script>populateName("userFullName")</script>
 	</body>
 	
 </html>

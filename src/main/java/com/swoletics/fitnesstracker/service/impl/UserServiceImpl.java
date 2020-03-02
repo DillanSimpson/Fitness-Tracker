@@ -1,15 +1,16 @@
 package com.swoletics.fitnesstracker.service.impl;
 
-import com.swoletics.fitnesstracker.dao.UserDao;
-import com.swoletics.fitnesstracker.model.User;
-import com.swoletics.fitnesstracker.service.UserService;
-
 import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.swoletics.fitnesstracker.dao.UserDao;
+import com.swoletics.fitnesstracker.model.User;
+import com.swoletics.fitnesstracker.service.UserService;
 
 /**
  * Provides implementation for all the methods in the {@link UserService}
@@ -36,11 +37,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void addUser(User user) {
-		try {
-			userDao.addUser(user);
-		} catch (DataAccessException ex) {
-			// TODO
-		}
+		userDao.addUser(user);
 	}
 
 	@Override
@@ -70,5 +67,10 @@ public class UserServiceImpl implements UserService {
 		} catch (DataAccessException ex) {
 			// TODO Exception Handler
 		}
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		return userDao.getUserByEmail(email);
 	}
 }

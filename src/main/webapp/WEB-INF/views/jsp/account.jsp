@@ -27,7 +27,7 @@
 <html>
 <head>
 	<!-- Scripts -->
-		
+	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 	
 	<!-- CSS Links -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -40,14 +40,17 @@
 
 
 <body id="main">
-
+	<script>
+	setUserName("${user.firstName}" + " " + "${user.lastName}");
+	</script>
+	
 	<header class="sticky-top"> 
 		<jsp:include page="/WEB-INF/views/partials/navbar.jsp" />
 	</header>
 
 	<div class="mt-2">
-		<h1 class="h1">Hello, {user.firstName}</h1>
-		<p class="text-center font-italic">Account created on {date}</p>
+		<h1 class="h1">Hello, ${user.firstName}</h1>
+		<p class="text-center font-italic">Account created on ${date}</p>
 	</div>
 	
 	<div class="container">
@@ -71,10 +74,10 @@
 			</div>
 			<div id="accountInfo" class="col d-block p-0">
 				<div class="float-left">
-					<p class="mb-0">Joe</p>
-					<p class="mb-0">Goldberg</p>
-					<p class="mb-0">jgoldberg@email.com</p>
-					<p class="mb-0">Basic/Upgraded Package</p>
+					<p class="mb-0"> ${user.firstName}</p>
+					<p class="mb-0"> ${user.lastName}</p>
+					<p class="mb-0"> ${user.username}</p>
+					<p class="mb-0">${user.planId.getMembership()}</p>
 				</div>
 			</div>
 		</div>
@@ -183,7 +186,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/paymentFormScripts.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.payform.min.js"></script>
 </body>

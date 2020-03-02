@@ -23,6 +23,8 @@
 	<!-- Scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 	
 	<!-- CSS Links -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -34,6 +36,9 @@
 	</head>
 	
 	<body id="homeMain">
+		<script>
+			setUserName("${fullName}");
+		</script>
 		<header class="sticky-top"> 
 			<jsp:include page="/WEB-INF/views/partials/navbar.jsp" />
 		</header>
@@ -51,9 +56,6 @@
 		
 		<footer class="fixed-bottom">
 			<jsp:include page="/WEB-INF/views/partials/footer.jsp" />
-		</footer>
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+		</footer>		
 	</body>
 </html>

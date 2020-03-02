@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -25,8 +27,9 @@ public class Authorities implements Serializable {
 
 	@Id
 	@Column(name = "username", unique = true, nullable = false)
-	private String userName;
+	private String username;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "authority", unique = true, nullable = false)
 	private Role role;
 
@@ -41,7 +44,7 @@ public class Authorities implements Serializable {
 	 * @param role,     authority of {@link User} cannot be {@code null}
 	 */
 	public Authorities(final String userName, final Role role) {
-		this.userName = userName;
+		this.username = userName;
 		this.role = role;
 	}
 }

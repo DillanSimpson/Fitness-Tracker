@@ -28,6 +28,14 @@ public interface UserService {
 	User getUser(String id);
 
 	/**
+	 * This method handles transactions of getting user by email from the database.
+	 *
+	 * @param userData, userData of the user which cannot be {@code null} or empty.
+	 * @return {@link User} object.
+	 */
+	User getUserByEmail(String email);
+
+	/**
 	 * This method handles transactions of getting the list of {@link User}s present
 	 * in the database.
 	 *
