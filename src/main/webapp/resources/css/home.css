@@ -50,11 +50,28 @@
 	cursor: zoom-in;
 }
 
+#accountCategories {
+	margin-right: 7px;
+}
+
+#accountInfo {
+	margin-left: 7px;
+}
+
+#paymentForm,
+#deleteAccModalTitle {
+	color: #000;
+}
+
 
 /* -----------------Buttons------------------------------ */
 
 #btn-or,
-#btnWelcome {
+#btnWelcome,
+#btnAccountChange,
+#btnPayment,
+#paymentMethodBtn,
+#deleteAccBtn {
 	display: block;
 	background: #274856;
 	color: #f4f8fa;
@@ -88,6 +105,21 @@
 	color: #274856;
 }
 
+#paymentMethodBtn {
+	width: 100%;
+}
+
+.ccPics {
+	width: 2.5rem;
+	height: auto;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.transparent {
+    opacity: 0.2;
+}
+
 /* ---------------------Header Nav and Footer------------------------ */
 
 #foot,
@@ -108,7 +140,9 @@
 #navlinks li a:active,
 #navlinks li a:focus,
 #logoutBtnDrop, 
-#logoutBtnDrop form div button {
+#logoutBtnDrop form div button,
+#accountBtnDrop,
+#accountBtnDrop button {
 	background: #46829b;
 	border-radius: 7px;
 	color: #f4f8fa;
