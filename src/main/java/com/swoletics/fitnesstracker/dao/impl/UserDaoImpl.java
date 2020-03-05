@@ -1,18 +1,18 @@
 package com.swoletics.fitnesstracker.dao.impl;
 
-import com.swoletics.fitnesstracker.dao.UserDao;
-import com.swoletics.fitnesstracker.model.User;
-
-import java.util.Objects;
-
 import static com.swoletics.fitnesstracker.util.Constant.USER_ID;
 
 import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
 import org.springframework.stereotype.Repository;
+
+import com.swoletics.fitnesstracker.dao.UserDao;
+import com.swoletics.fitnesstracker.model.User;
 
 /**
  * It provides implementation methods to the {@link UserDao}
@@ -32,6 +32,7 @@ public class UserDaoImpl implements UserDao {
 
 	// Query strings
 	private static final String GET_USERS_QUERY = "SELECT u FROM User u";
+	private static final String GET_USERS_QUERY_BY_EMAIL = "SELECT u FROM User u WHERE u.userName = :email";
 	private static final String GET_USERS_QUERY_SORTED_ASC = "SELECT u FROM User u ORDER BY u.associateID asc";
 	private static final String GET_USERS_QUERY_SORTED_DESC = "SELECT u FROM User u ORDER BY u.associateID desc";
 	private static final String DELETE_USER_QUERY = "DELETE FROM User u WHERE u.associateID = :associateId";
@@ -67,6 +68,17 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(String Id) {
 		try {
 			return entityManager.find(User.class, Id);
+		} catch (PersistenceException ex) {
+			// TODO Exception handler
+		}
+		return null;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		try {
+			return entityManager.createQuery(GET_USERS_QUERY_BY_EMAIL, User.class).setParameter("email", email)
+					.getSingleResult();
 		} catch (PersistenceException ex) {
 			// TODO Exception handler
 		}

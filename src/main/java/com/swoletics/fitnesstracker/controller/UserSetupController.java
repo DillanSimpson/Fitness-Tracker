@@ -2,6 +2,9 @@ package com.swoletics.fitnesstracker.controller;
 
 import static com.swoletics.fitnesstracker.util.Constant.USERSETUP_ROUTE;
 
+import java.sql.Date;
+import java.util.Calendar;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.swoletics.fitnesstracker.model.Authorities;
+import com.swoletics.fitnesstracker.model.MemberType;
 import com.swoletics.fitnesstracker.model.Role;
 import com.swoletics.fitnesstracker.model.User;
+import com.swoletics.fitnesstracker.model.UserData;
 import com.swoletics.fitnesstracker.service.AuthoritiesService;
 import com.swoletics.fitnesstracker.service.UserService;
 
@@ -68,26 +73,56 @@ public class UserSetupController {
 	/**
 	 * Registers a user
 	 * 
-	 * @param user,     user object to be set
-	 * @param username, username for {@link User}
-	 * @param password, password for {@link User}
-	 * @param enabled,  indicator if {@link User} is active
-	 * @param request,  servlet request
-	 * @param response, servelt response
+	 * @param user,          user object to be set
+	 * @param username,      username for {@link User}
+	 * @param password,      password for {@link User}
+	 * @param enabled,       indicator if {@link User} is active
+	 * @param firstName,     first name for {@link UserData}
+	 * @param lastName,      last name for {@link UserData}
+	 * @param exampleRadios, membership type for {@link UserData}
+	 * @param request,       servlet request
+	 * @param response,      servelt response
 	 * @return String, redirect home after successful registration
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(User user, String username, String password, Boolean enabled, HttpServletRequest request,
+	public String registerUser(User user, String username, String password, Boolean enabled, String firstName,
+			String lastName, int exampleRadios, HttpServletRequest request,
 			HttpServletResponse response) {
 		Authorities authorities = new Authorities();
+		UserData userData = new UserData();
 
+		// Get Date
+		Calendar currenttime = Calendar.getInstance();
+		Date today = new Date((currenttime.getTime()).getTime());
+
+		// Default member type
+		MemberType memberType = MemberType.TRACKER;
+
+		if (exampleRadios == 1) {
+			memberType = MemberType.DIET_PLAN;
+		}
+
+		// Set Authority
 		authorities.setRole(Role.USER);
-		authorities.setUserName(username);
+		authorities.setUsername(username);
 
+		// Set User
 		user.setEnabled(enabled);
 		user.setPassword(password);
 		user.setUserName(username);
 		user.setAuthorities(authorities);
+
+		// Set Objects
+		authorities.setUser(user);
+		userData.setUser(user);
+		user.setUserData(userData);
+
+		// Set User Data details
+		userData.setFirstName(firstName);
+		userData.setLastName(lastName);
+		userData.setUsername(username);
+		userData.setPlanId(memberType);
+		userData.setDateCreated(today);
 
 		userService.addUser(user);
 

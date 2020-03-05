@@ -55,27 +55,27 @@
 				<form method="POST" action="${pageContext.request.contextPath}/register">
 				  <div class="form-group row">
 				    <div class="col">
-				      <input type="text" class="form-control" placeholder="First name">
+				      <input type="text" name="firstName" class="form-control" placeholder="First name">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" placeholder="Last name">
+				      <input type="text" name="lastName" class="form-control" placeholder="Last name">
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+				    <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
 				    <small id="emailHelp" class="form-text text-muted"></small>
 				  </div>
 				  <div class="form-group">
-				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 				  </div>
 				  	<div class="form-check">
-						  <input class="form-check-input" type="radio" name="exampleRadios" id="trackerRadio" value="option1" checked>
+						  <input class="form-check-input" type="radio" name="exampleRadios" id="trackerRadio" value="0" checked>
 						  <label class="form-check-label" for="trackerRadio">
 						    <small>Fitness tracker only</small>
 						  </label>
 					</div>
 					<div class="form-check">
-						  <input class="form-check-input" type="radio" name="exampleRadios" id="planRadio" value="option2">
+						  <input class="form-check-input" type="radio" name="exampleRadios" id="planRadio" value="1">
 						  <label class="form-check-label" for="planRadio">
 						    <small>Fitness tracker + Custom workout and diet plans</small>
 						  </label>
@@ -122,10 +122,11 @@
 						    </div>
 							<div class="form-group col">
 							    <label for="goalWeight">Goal Weight :</label>
-							    <input type="text" class="form-control" id="goalWeight">
+							    <input type="text" name="weight" class="form-control" id="goalWeight">
 							</div>
 						</div>
 					</div>
+					<input name="enabled" type="hidden" value="1">
 					<button type="submit" name="submit" id="btn-or" class="fadeBtn btn btn-info btn-lg shadow p-3 float-right mt-3">Submit</button>
 				</form>
 			</div>

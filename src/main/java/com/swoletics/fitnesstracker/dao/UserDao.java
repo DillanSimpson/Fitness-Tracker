@@ -27,6 +27,14 @@ public interface UserDao {
 	public User getUser(String Id);
 
 	/**
+	 * Retrieve {@link User} object using user email.
+	 * 
+	 * @param email, email of user which cannot be {@code null} or empty.
+	 * @return {@link User} from persistent Objects.
+	 */
+	public User getUserByEmail(String email);
+
+	/**
 	 * Retrieve list of {@link User}s from the database.
 	 *
 	 * @return list of {@link User}s present in the database table.

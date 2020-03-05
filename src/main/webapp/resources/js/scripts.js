@@ -2,6 +2,7 @@
 //JavaScript program for birth date on userSetup page//
 ///////////////////////////////////////////////////////
 
+//Globals//
 var month = {
    1 : "Jan",
    2 : "Feb",
@@ -16,6 +17,8 @@ var month = {
    11 : "Nov",
    12 : "Dec"
 };
+
+var userFullName;
 
 function populateMonth(){
   var select = document.getElementById("monthDrop");
@@ -38,17 +41,33 @@ function setDaysValue(monthId, yearId){
     date = new Date(document.getElementById(yearId).value, document.getElementById(monthId).value, 0).getDate();
     var select = document.getElementById("dayDrop");
     for(i = 1; i <= date; i++) {
-	select.options[select.options.length] = new Option(i, i);
+    	select.options[select.options.length] = new Option(i, i);
     }
 }
  
 function deleteDays(){
-	  var select = document.getElementById("dayDrop");
-	  var length = select.options.length;
-	  for (i = length-1; i >= 0; i--) {
-	    select.options[i] = null;
-	  }
-	}
+  var select = document.getElementById("dayDrop");
+  var length = select.options.length;
+  for (i = length-1; i >= 0; i--) {
+    select.options[i] = null;
+  }
+}
+
+/////////////////////
+//Populate Navbar///
+////////////////////
+
+function setUserName(nameSet){
+	userFullName = nameSet;
+}
+
+function getUserName(){
+	return userFullName;
+}
+
+function populateName(elementId){
+	document.getElementById(elementId).innerHTML = getUserName();
+}
 
 /////////////////////////////
 //jQuery for userSetup page// 
@@ -87,8 +106,6 @@ $(".footerLogo").on("click", function() {
 ////////////////////
 //Called functions//
 ////////////////////
-
 populateMonth();
 populateYear();
 setDaysValue("monthDrop", "yearDrop");
-
